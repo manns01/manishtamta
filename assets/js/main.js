@@ -155,14 +155,29 @@
     }, 2200);
   }
 
-  /* ---- lazy-play videos when scrolled into view --------------- */
+  /* ---- research clips: play like a silent GIF --------------------
+     Markup is `autoplay muted loop playsinline` (no controls) so phones just
+     loop them. Here we: (a) hard-stop them for reduced-motion users, (b) add
+     scrubber controls back on desktop pointer devices, (c) pause off-screen. */
   var vids = document.querySelectorAll(".clip video");
+  var desktopPointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  vids.forEach(function (v) {
+    if (reduceMotion) {
+      v.autoplay = false;
+      v.removeAttribute("autoplay");
+      try { v.pause(); } catch (e) {}
+      v.setAttribute("controls", "");            // let them start it manually if they want
+    } else if (desktopPointer) {
+      v.setAttribute("controls", "");            // hover-to-scrub on desktop, bare loop on touch
+    }
+  });
+
   if ("IntersectionObserver" in window && vids.length) {
     var vObs = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         var v = entry.target;
         if (entry.isIntersecting) {
-          if (v.preload === "none") v.preload = "auto";
           if (!reduceMotion) { var p = v.play(); if (p) p.catch(function () {}); }
         } else if (!v.paused) {
           v.pause();

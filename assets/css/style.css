@@ -178,7 +178,7 @@ img { max-width: 100%; height: auto; display: block; }
   :root:not([data-theme="light"]) .icon-moon { display: block; }
 }
 
-.menu-toggle { display: none; flex-direction: column; gap: 4px; }
+.menu-toggle { display: none; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
 .menu-toggle span { width: 17px; height: 2px; background: currentColor; border-radius: 2px; transition: transform .2s ease, opacity .2s ease; }
 
 /* ------------------------------------------------------------ sections -- */
