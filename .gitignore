@@ -1,0 +1,15 @@
+.DS_Store
+**/.DS_Store
+**/__pycache__/
+*.pyc
+.venv/
+venv/
+# local preview / screenshot scratch
+.shots/
+.preview/
+
+# AI tooling notes, not site content
+CLAUDE.md
+
+# large unused source image (optimized copy is assets/img/headshot.jpg)
+files/email_profile.png
