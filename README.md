@@ -14,10 +14,12 @@ external requests are Google Fonts (Inter + Source Serif 4).
 │   ├── js/main.js         nav, scrollspy, theme toggle, reveal, map interactions
 │   ├── img/              headshot.jpg, favicon.svg
 │   └── animations/       microlensing.mp4 / wave-optics.mp4 (+ .jpg posters)
-├── files/                CV PDF
-├── utils/                Python sources for the two research animations
-└── tools/                build_worldmap.py — regenerates the map's land path
+└── files/                CV PDF
 ```
+
+The Python that renders the research animations and the world-map land path is
+kept locally (`utils/`, `tools/build_worldmap.py`) and is not part of this repo;
+only the rendered `assets/animations/` files ship with the site.
 
 The header and footer markup is copied across the four HTML pages (no templating);
 edit a nav link in all four.
@@ -41,10 +43,3 @@ git add -A && git commit -m "…" && git push
 
 Internal links are relative, so moving the site only needs the absolute URLs in
 the four `<head>`s updated (`grep -rl manns01.github.io *.html`).
-
-## Regenerating the animations
-
-`pip install -r utils/requirements.txt` (needs `ffmpeg` on `PATH`), then
-`./utils/render_all.sh` — writes the MP4s + posters into `assets/animations/`.
-The microlensing figure uses the finite-source point-lens equations
-(Witt & Mao 1994) in `utils/finite_source.py`; see `utils/README.md`.

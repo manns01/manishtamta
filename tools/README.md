@@ -3,6 +3,7 @@
 ## build_worldmap.py
 
 Regenerates the land silhouette used by the map on `collaborators.html`.
+(`build_worldmap.py` itself is kept locally and not committed.)
 
 ```bash
 curl -sL https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json -o land-110m.json
