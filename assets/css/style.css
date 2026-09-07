@@ -217,7 +217,15 @@ img { max-width: 100%; height: auto; display: block; }
   .js .hero-name { visibility: visible; }
   .hero-name .caret { display: none; }
 }
-.hero-personal { color: var(--text-soft); font-size: .98rem; }
+.hero-personal {
+  margin: 1.5rem 0 1.7rem; padding-left: 1.15rem;
+  border-left: 2px solid color-mix(in srgb, var(--teal) 65%, transparent);
+  font-family: var(--font-serif); font-style: italic;
+  font-size: 1.05rem; line-height: 1.6; color: var(--text-soft);
+}
+.hero-personal p { margin: 0; }
+.hero-personal p::before { content: "\201C"; }
+.hero-personal p::after  { content: "\201D"; }
 
 .status {
   display: inline-flex; align-items: center; gap: .55rem;
