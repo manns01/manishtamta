@@ -18,8 +18,8 @@ external requests are Google Fonts (Inter + Source Serif 4).
 ```
 
 The Python that renders the research animations and the world-map land path is
-kept locally (`utils/`, `tools/build_worldmap.py`) and is not part of this repo;
-only the rendered `assets/animations/` files ship with the site.
+kept locally (`utils/`, `tools/`) and is not part of this repo; only the
+rendered `assets/animations/` files ship with the site.
 
 The header and footer markup is copied across the four HTML pages (no templating);
 edit a nav link in all four.

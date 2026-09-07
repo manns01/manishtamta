@@ -17,4 +17,4 @@ files/email_profile.png
 # animation / figure generator sources — kept local, not published
 # (only the rendered assets/animations/*.mp4 + *.jpg ship with the site)
 utils/
-tools/build_worldmap.py
+tools/
