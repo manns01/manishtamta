@@ -341,10 +341,26 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .timeline { list-style: none; margin: 0; padding: 0; }
 .timeline li {
+  position: relative;
   display: grid; grid-template-columns: 6.5rem 1fr; gap: 1.25rem;
-  padding: 1rem 0; border-top: 1px solid var(--border);
+  padding: 0 0 1.75rem 1.75rem;
 }
-.timeline li:first-child { border-top: 0; padding-top: 0; }
+.timeline li:last-child { padding-bottom: 0; }
+.timeline li::before {
+  content: ''; position: absolute; left: 4px; top: 6px; bottom: -1.75rem;
+  width: 2px; background: var(--border);
+}
+.timeline li:first-child::before {
+  top: -.9rem;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 1.1rem);
+          mask-image: linear-gradient(to bottom, transparent, #000 1.1rem);
+}
+.timeline li:last-child::before { content: none; }
+.timeline li::after {
+  content: ''; position: absolute; left: 0; top: 2px;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--teal); box-shadow: 0 0 0 3px var(--surface-2);
+}
 .tl-date { font-family: var(--font-mono); font-size: .85rem; color: var(--text-soft); padding-top: .1rem; }
 .tl-title { margin: 0 0 .2rem; font-weight: 550; color: var(--heading); }
 .tl-where { margin: 0; font-size: .92rem; color: var(--text-soft); }
